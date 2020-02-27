@@ -22,11 +22,14 @@
 // })
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import renderer from 'react-test-renderer'
 import App from './App'
 
 describe('Mejor App testing', () => {
+
+  const component = mount(<App />)
+  
   it('should render an Edit', () => {
     const wrapper = shallow(<App />)
     const parrafo = wrapper.find('p')
@@ -38,10 +41,16 @@ describe('Mejor App testing', () => {
     expect(result).toEqual(expect.stringContaining('Edit'))
   })
 
+  it('should render an Edit better test', () => {
+    // expect(component.find('p').at(0).text()).toEqual(expect.stringContaining('Ejemplo'))
+    expect(component.find('p').at(0).text()).toMatch(/Ejemplo/)
+  })
+
   it('render the element vs snapshot', () =>{
-    const component = renderer.create(<App />)
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+    // const component = mount(<App />)
+    // let tree = component.toJSON()
+    // expect(tree).toMatchSnapshot()
+    expect(component).toMatchSnapshot()
   })
 })
 
