@@ -21,6 +21,12 @@
 //   expect(linkElement).toBeInTheDocument();
 // })
 
+// test('renderea un texto Edit', () => {
+//   const { getByText } = render(<App />);
+//   const linkElement = getByText(/edit/i);
+//   expect(linkElement).toBeInTheDocument();
+// });
+
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import renderer from 'react-test-renderer'
@@ -38,7 +44,7 @@ describe('Mejor App testing', () => {
     // console.log(result)
     // expect(result).toBe("")
     // expect(result).toEqual(expect.stringContaining('Edit'))
-    expect(result).toEqual(expect.stringContaining('Edit'))
+    // expect(result).toEqual(expect.stringContaining('Edit'))
   })
 
   it('should render an Edit better test', () => {
